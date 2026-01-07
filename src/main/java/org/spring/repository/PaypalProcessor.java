@@ -1,14 +1,15 @@
 package org.spring.repository;
 
+
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("creditCardProcessor")
-public class CreditCardProcessor implements PaymentProcessor {
-
+@Qualifier("paypalProcessor")
+public class PaypalProcessor implements PaymentProcessor {
     @Override
     public void processPayment(double amount) {
-        System.out.println("Processing credit card payment of $" + amount);
+        System.out.println("Processing PayPal payment of $" + amount);
     }
 }

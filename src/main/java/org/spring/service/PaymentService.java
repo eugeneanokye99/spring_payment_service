@@ -1,11 +1,16 @@
 package org.spring.service;
 
 import org.spring.repository.PaymentProcessor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PaymentService {
     private final PaymentProcessor paymentProcessor;
 
-    public PaymentService(PaymentProcessor paymentProcessor) {
+    @Autowired
+    public PaymentService(@Qualifier("creditCardProcessor") PaymentProcessor paymentProcessor) {
         this.paymentProcessor = paymentProcessor;
     }
 
